@@ -1,0 +1,147 @@
+
+$backgroundRed: red;
+$backgroundBlack: black;
+@import './animationTrigger';
+
+
+@mixin flexCenter {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin positioningElement {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin rightDivOverlapping {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+@mixin loaderSpecification($borderColor, $borderTopColor, $width, $height, $borderLeftColor, $borderBottomColor) {
+  border: 15px solid $borderColor;
+  border-top: 15px solid $borderTopColor;
+  width: $width;
+  height: $height;
+  border-radius: 50%;
+  z-index: 99;
+  border-left-color: $borderLeftColor;
+  border-bottom-color: $borderBottomColor;
+}
+
+.loader-logo {
+  width: 100%;
+  height: 100vh;
+  font-size: 0;
+  @include flexCenter();
+  .rightDiv {
+    position: absolute;
+    z-index: 99;
+  }
+  .leftDiv {
+    .loadingSpinner {
+      @include flexCenter();
+      @include loaderSpecification(black, black, 400px, 400px, red, red);
+      animation: spiner 2s linear infinite;
+
+      @keyframes spiner {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+
+  .loadingSpinner1 {
+    @include flexCenter();
+    @include loaderSpecification(red, red, 371px, 371px, black, black);
+    animation: spin 2s linear infinite;
+    @keyframes spin {
+      0% {
+        transform: rotate(360deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+  }
+  .loadingSpinner2 {
+    @include flexCenter();
+    @include loaderSpecification(red, red, 173px, 173px, black, black);
+    animation: spin 2s linear infinite;
+    @keyframes spin {
+      0% {
+        transform: rotate(360deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  .loadingSpinner3 {
+    @include flexCenter();
+    @include loaderSpecification(black, black, 200px, 200px, red, red);
+    animation: spin 2s linear infinite;
+    @keyframes spin {
+      0% {
+        transform: rotate(360deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+  }
+}
+
+.loadingStand {
+  width: 10px;
+  height: 73px;
+  position: absolute;
+  top: 13px;
+  border: 5px solid $backgroundRed;
+  border-color: $backgroundRed;
+  background: $backgroundBlack;
+}
+
+.left-div-container {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+  .init-left {
+    @include positioningElement();
+    background: $backgroundBlack;
+  }
+}
+
+.right-div-container {
+  @include rightDivOverlapping();
+  .init-right {
+    @include positioningElement();
+    background: $backgroundRed;
+  }
+}
+.loader-page {
+  @include positioningElement();
+  font-size: 0;
+  will-change: transform;
+}
+
+.lockImg {
+  pointer-events: all;
+  background-color: red;
+ 
+}
