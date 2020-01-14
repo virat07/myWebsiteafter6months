@@ -95,15 +95,7 @@ export default function AppBarContainer() {
           </Grid>
         </Grid>
       </AppBar>
-      <TabPanel value={navItem} index={0}>
-        Item One
-      </TabPanel>
-      <TabPanel value={navItem} index={1}>
-        Item Two
-      </TabPanel>
-      <TabPanel value={navItem} index={2}>
-        Item Three
-      </TabPanel>
+
     </div>
   );
 }
